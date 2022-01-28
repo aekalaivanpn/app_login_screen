@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:app_login_screen/color.dart';
 
 class PasswordField extends StatefulWidget {
-  const PasswordField({Key? key}) : super(key: key);
+
+  final String hintText;
+  const PasswordField({Key? key, required this.hintText}) : super(key: key);
 
   @override
   _PasswordFieldState createState() => _PasswordFieldState();
 }
 
 class _PasswordFieldState extends State<PasswordField> {
-
   bool _isHidden = true;
 
   @override
@@ -21,7 +22,7 @@ class _PasswordFieldState extends State<PasswordField> {
         onChanged: (value) {},
         cursorColor: kPrimaryColor,
         decoration: InputDecoration(
-          hintText: "Password",
+          hintText: widget.hintText,
           icon: const Icon(
             Icons.lock,
             color: kPrimaryColor,
@@ -29,9 +30,7 @@ class _PasswordFieldState extends State<PasswordField> {
           suffixIcon: InkWell(
             onTap: _togglePasswordView,
             child: Icon(
-              _isHidden
-              ? Icons.visibility
-              : Icons.visibility_off,
+              _isHidden ? Icons.visibility_off : Icons.visibility,
               color: kPrimaryColor,
             ),
           ),
@@ -42,7 +41,6 @@ class _PasswordFieldState extends State<PasswordField> {
   }
 
   void _togglePasswordView() {
-
     setState(() {
       _isHidden = !_isHidden;
     });

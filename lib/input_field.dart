@@ -3,21 +3,28 @@ import 'package:flutter/material.dart';
 import 'package:app_login_screen/color.dart';
 
 class InputField extends StatelessWidget {
-
-  const InputField({Key? key}) : super(key: key);
+  final String hintText;
+  final IconData icon;
+  final ValueChanged<String> onChanged;
+  const InputField({
+    Key? key,
+    required this.hintText,
+    required this.icon,
+    required this.onChanged,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
       child: TextField(
-        onChanged: (value) {},
+        onChanged: onChanged,
         cursorColor: kPrimaryColor,
         decoration: InputDecoration(
           icon: Icon(
-            Icons.person,
+            icon,
             color: kPrimaryColor,
           ),
-          hintText: 'User Name',
+          hintText: hintText,
           border: InputBorder.none,
         ),
       ),

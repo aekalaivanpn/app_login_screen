@@ -1,14 +1,9 @@
 import 'package:app_login_screen/color.dart';
 import 'package:app_login_screen/login_page.dart';
+import 'package:app_login_screen/landscape_login_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-Future main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
+void main() {
   runApp(const LoginApp());
 }
 
@@ -23,7 +18,12 @@ class LoginApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: const LoginPage(),
+      home: OrientationBuilder(
+          builder: (context, orientation) =>
+              orientation == Orientation.portrait
+                  ? const LoginPage()
+                  : const LandscapeLoginPage(),
+      ),
     );
   }
 }

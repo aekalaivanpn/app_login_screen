@@ -26,6 +26,7 @@ class SocialIcons extends StatelessWidget {
               'icons/facebook_48.svg',
               height: 25,
               width: 25,
+              color: kPrimaryColor,
             ),
           ),
         ),
@@ -45,6 +46,7 @@ class SocialIcons extends StatelessWidget {
               'icons/twitter_48.svg',
               height: 25,
               width: 25,
+              color: kPrimaryColor,
             ),
           ),
         ),GestureDetector(
@@ -63,6 +65,7 @@ class SocialIcons extends StatelessWidget {
               'icons/google_48.svg',
               height: 25,
               width: 25,
+              color: kPrimaryColor,
             ),
           ),
         ),
