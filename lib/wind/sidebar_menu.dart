@@ -1,5 +1,6 @@
 import 'package:app_login_screen/color.dart';
 import 'package:app_login_screen/login_page.dart';
+import 'package:app_login_screen/map/map_screen.dart';
 import 'package:app_login_screen/wind/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -36,14 +37,16 @@ class _SidebarMenuState extends State<SidebarMenu> {
                     text: 'Home',
                     icon: Icons.home_filled,
                     onClicked: () {
-                      Get.offAll(() => HomePage());
+                      Get.offAll(() => const HomePage());
                     },
                   ),
                   const SizedBox(height: 15),
                   buildMenuItem(
                     text: 'Map',
                     icon: Icons.map,
-                    onClicked: () {},
+                    onClicked: () {
+                      Get.offAll(() => const MapScreen());
+                    },
                   ),
                   const SizedBox(height: 430),
                   const Divider(color: Colors.white),
