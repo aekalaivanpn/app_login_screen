@@ -1,4 +1,5 @@
 import 'package:app_login_screen/body.dart';
+import 'package:app_login_screen/landscape_body.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -6,8 +7,12 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Body(),
+    return Scaffold(
+      body: OrientationBuilder(
+        builder: (context, orientation) => orientation == Orientation.portrait
+            ? const Body()
+            : const LandscapeBody(),
+      ),
     );
   }
 }

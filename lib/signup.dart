@@ -1,10 +1,17 @@
+import 'package:app_login_screen/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:app_login_screen/color.dart';
+import 'package:get/get.dart';
 
-class Signup extends StatelessWidget {
+class Signup extends StatefulWidget {
 
   const Signup({Key? key}) : super(key: key);
 
+  @override
+  State<Signup> createState() => _SignupState();
+}
+
+class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -18,7 +25,9 @@ class Signup extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Get.offAll(() => const SignupPage());
+          },
           child: const Text(
             "Sign Up",
             style: TextStyle(

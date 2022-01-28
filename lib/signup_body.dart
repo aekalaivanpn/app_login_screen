@@ -4,7 +4,6 @@ import 'package:app_login_screen/input_field.dart';
 import 'package:app_login_screen/login.dart';
 import 'package:app_login_screen/password_field.dart';
 import 'package:app_login_screen/register_button.dart';
-import 'package:app_login_screen/signup.dart';
 import 'package:app_login_screen/social_icons.dart';
 import 'package:flutter/material.dart';
 

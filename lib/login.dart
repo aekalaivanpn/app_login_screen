@@ -1,5 +1,7 @@
+import 'package:app_login_screen/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:app_login_screen/color.dart';
+import 'package:get/get.dart';
 
 class Login extends StatelessWidget {
 
@@ -18,7 +20,9 @@ class Login extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Get.offAll(() => const LoginPage());
+          },
           child: const Text(
             "Login",
             style: TextStyle(
