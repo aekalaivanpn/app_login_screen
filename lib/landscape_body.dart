@@ -6,6 +6,7 @@ import 'package:app_login_screen/password_field.dart';
 import 'package:app_login_screen/signup.dart';
 import 'package:app_login_screen/social_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class LandscapeBody extends StatelessWidget {
   const LandscapeBody({Key? key}) : super(key: key);
@@ -18,8 +19,9 @@ class LandscapeBody extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Image.asset('images/center.png',
-                width: size.width * 0.2),
+            SvgPicture.asset('icons/login.svg',
+              width: size.width * 0.2,
+            ),
             InputField(
               hintText: "User Name",
               onChanged: (value) {},

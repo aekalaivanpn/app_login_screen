@@ -1,12 +1,18 @@
 import 'package:app_login_screen/color.dart';
 import 'package:app_login_screen/login_page.dart';
 import 'package:app_login_screen/primaryswatch.dart';
+import 'package:app_login_screen/provider/google_sign_in.dart';
 import 'package:app_login_screen/wind/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:get/get.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp();
   await GetStorage.init();
   runApp(const LoginApp());
 }
@@ -16,20 +22,17 @@ class LoginApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Palette.kToDark,
-        primaryColor: kPrimaryColor,
-        scaffoldBackgroundColor: Colors.white,
+    return ChangeNotifierProvider(
+      create: (context) => GoogleSignInProvider(),
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Palette.kToDark,
+          primaryColor: kPrimaryColor,
+          scaffoldBackgroundColor: Colors.white,
+        ),
+        home: const StartingPage(),
       ),
-      home: const StartingPage(),
-      // home: OrientationBuilder(
-      //     builder: (context, orientation) =>
-      //         orientation == Orientation.portrait
-      //             ? const SignupPage()
-      //             : const LandscapeSignupPage(),
-      // ),
     );
   }
 }

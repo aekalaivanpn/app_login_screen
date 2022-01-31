@@ -6,6 +6,7 @@ import 'package:app_login_screen/password_field.dart';
 import 'package:app_login_screen/register_button.dart';
 import 'package:app_login_screen/social_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SignupBody extends StatelessWidget {
   const SignupBody({Key? key}) : super(key: key);
@@ -18,8 +19,9 @@ class SignupBody extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Image.asset('images/signup.png',
-                width: size.width * 0.6),
+            SvgPicture.asset('icons/signup.svg',
+              width: size.width * 0.5,
+            ),
             InputField(
               hintText: "User Name",
               onChanged: (value) {},
